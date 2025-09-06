@@ -9,7 +9,6 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 import uuid
 from datetime import datetime, timedelta
-from decimal import Decimal
 
 # استيراد النماذج الجديدة
 from models import (
