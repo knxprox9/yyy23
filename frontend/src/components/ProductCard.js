@@ -251,7 +251,7 @@ const ProductCard = () => {
               </div>
               <div className="feature-item">
                 <FiShield className="feature-icon" />
-                <span className="feature-text">حماية شاملة</span>
+                <span className="feature-text">أمان مضمون</span>
               </div>
               <div className="feature-item">
                 <FiGift className="feature-icon" />
