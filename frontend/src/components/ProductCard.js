@@ -515,7 +515,7 @@ const StyledWrapper = styled.div`
 
   .card .content { 
     padding: 0 20px; /* زيادة الحشو الجانبي */
-    margin-bottom: 20px; /* زيادة المسافة من الأسفل */
+    margin-bottom: 8px; /* تقليل المسافة من الأسفل */
   }
 
   .card .content .brand { 
