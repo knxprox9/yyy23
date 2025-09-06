@@ -1,14 +1,35 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException, Query, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta
+from decimal import Decimal
+
+# استيراد النماذج الجديدة
+from models import (
+    # User models
+    User, UserCreate, UserUpdate,
+    # Service models  
+    Service, ServiceBase, ServiceType,
+    # Card models
+    CardProduct, CardProductBase, CardProvider,
+    # Order models
+    Order, OrderCreate, OrderStatus,
+    # Payment models
+    Payment, PaymentBase, PaymentStatus,
+    # Review models
+    Review, ReviewBase,
+    # Analytics models
+    ServiceStats, DashboardMetrics,
+    # System models
+    SystemSettings, ActivityLog
+)
 
 
 ROOT_DIR = Path(__file__).parent
