@@ -225,7 +225,7 @@ const ProductCard = () => {
               </div>
               <div className="service-duration">
                 <span className="duration-icon">🚀</span>
-                <span className="duration-text">تسليم سريع</span>
+                <span className="duration-text">تفعيل فوري</span>
               </div>
             </div>
             <div className="progress-container">
