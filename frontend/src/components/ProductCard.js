@@ -255,7 +255,7 @@ const ProductCard = () => {
               </div>
               <div className="feature-item">
                 <FiGift className="feature-icon" />
-                <span className="feature-text">مكافآت حصرية</span>
+                <span className="feature-text">عروض حصرية</span>
               </div>
             </div>
           </div>
