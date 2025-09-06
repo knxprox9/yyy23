@@ -221,7 +221,7 @@ const ProductCard = () => {
             <div className="service-header">
               <div className="service-level">
                 <span className="level-icon">⭐</span>
-                <span className="level-text">خدمة مميزة</span>
+                <span className="level-text">بطاقات رقمية</span>
               </div>
               <div className="service-duration">
                 <span className="duration-icon">🚀</span>
