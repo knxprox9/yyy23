@@ -131,7 +131,7 @@ async def get_card_product(card_id: str):
 async def create_order(order_data: OrderCreate):
     """إنشاء طلب جديد"""
     # حساب المجاميع
-    subtotal = Decimal("0.00")
+    subtotal = 0.0
     items = []
     
     for item_data in order_data.items:
