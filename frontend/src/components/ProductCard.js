@@ -237,7 +237,7 @@ const ProductCard = () => {
             <div className="service-stats">
               <div className="stat-item">
                 <span className="stat-icon">🎯</span>
-                <span className="stat-text">نجح +250 مشروع</span>
+                <span className="stat-text">تم بيع +250 بطاقة</span>
               </div>
               <div className="stat-item">
                 <span className="stat-icon">💎</span>
