@@ -210,7 +210,7 @@ async def get_dashboard_metrics():
         {"$group": {"_id": None, "total": {"$sum": "$total_amount"}}}
     ]
     today_revenue_result = await db.orders.aggregate(today_revenue_pipeline).to_list(1)
-    today_revenue = Decimal(str(today_revenue_result[0]["total"])) if today_revenue_result else Decimal("0.00")
+    today_revenue = float(today_revenue_result[0]["total"]) if today_revenue_result else 0.0
     
     # إجمالي العملاء
     total_customers = await db.users.count_documents({"role": "customer"})
