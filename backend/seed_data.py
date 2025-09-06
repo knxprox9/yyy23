@@ -191,7 +191,7 @@ async def seed_database():
             "country": "SA",
             "role": UserRole.CUSTOMER,
             "total_orders": 5,
-            "total_spent": Decimal("127.50"),
+            "total_spent": 127.50,
             "loyalty_points": 128
         },
         {
@@ -202,7 +202,7 @@ async def seed_database():
             "country": "SA",
             "role": UserRole.CUSTOMER,
             "total_orders": 3,
-            "total_spent": Decimal("85.00"),
+            "total_spent": 85.0,
             "loyalty_points": 85
         },
         {
@@ -213,7 +213,7 @@ async def seed_database():
             "country": "SA", 
             "role": UserRole.ADMIN,
             "total_orders": 0,
-            "total_spent": Decimal("0.00"),
+            "total_spent": 0.0,
             "loyalty_points": 0
         }
     ]
