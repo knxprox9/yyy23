@@ -175,7 +175,7 @@ async def seed_database():
     for card_data in card_products_data:
         card = CardProduct(**card_data)
         card_products.append(card)
-        await db.card_products.insert_one(card.dict())
+        await db.card_products.insert_one(card.model_dump())
     
     print(f"✅ تم إدخال {len(card_products)} منتج بطاقة")
     
@@ -222,7 +222,7 @@ async def seed_database():
     for user_data in users_data:
         user = User(**user_data)
         users.append(user)
-        await db.users.insert_one(user.dict())
+        await db.users.insert_one(user.model_dump())
     
     print(f"✅ تم إدخال {len(users)} مستخدم")
     
@@ -274,7 +274,7 @@ async def seed_database():
     for order_data in sample_orders:
         order = Order(**order_data)
         orders.append(order)
-        await db.orders.insert_one(order.dict())
+        await db.orders.insert_one(order.model_dump())
     
     print(f"✅ تم إدخال {len(orders)} طلب")
     
@@ -306,7 +306,7 @@ async def seed_database():
     for review_data in reviews_data:
         review = Review(**review_data)
         reviews.append(review)
-        await db.reviews.insert_one(review.dict())
+        await db.reviews.insert_one(review.model_dump())
     
     print(f"✅ تم إدخال {len(reviews)} تقييم")
     
@@ -344,7 +344,7 @@ async def seed_database():
     for setting_data in system_settings:
         setting = SystemSettings(**setting_data)
         settings.append(setting)
-        await db.system_settings.insert_one(setting.dict())
+        await db.system_settings.insert_one(setting.model_dump())
     
     print(f"✅ تم إدخال {len(settings)} إعداد نظام")
     
