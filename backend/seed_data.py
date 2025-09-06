@@ -245,8 +245,8 @@ async def seed_database():
                 }
             ],
             "status": OrderStatus.COMPLETED,
-            "subtotal": Decimal("19.95"),
-            "total_amount": Decimal("19.95"),
+            "subtotal": 19.95,
+            "total_amount": 19.95,
             "completed_at": datetime.utcnow() - timedelta(days=2)
         },
         {
@@ -264,8 +264,8 @@ async def seed_database():
                 }
             ],
             "status": OrderStatus.DELIVERED,
-            "subtotal": Decimal("10.99"),
-            "total_amount": Decimal("10.99"),
+            "subtotal": 10.99,
+            "total_amount": 10.99,
             "completed_at": datetime.utcnow() - timedelta(hours=6)
         }
     ]
