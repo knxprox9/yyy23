@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field, EmailStr, validator
 from typing import List, Optional, Dict, Any
 from datetime import datetime
-from decimal import Decimal
 import uuid
 from enum import Enum
 
@@ -87,7 +86,7 @@ class User(UserBase):
     updated_at: Optional[datetime] = None
     last_login: Optional[datetime] = None
     total_orders: int = Field(default=0, description="إجمالي الطلبات")
-    total_spent: Decimal = Field(default=Decimal("0.00"), description="إجمالي المبلغ المنفق")
+    total_spent: float = Field(default=0.0, description="إجمالي المبلغ المنفق")
     loyalty_points: int = Field(default=0, description="نقاط الولاء")
 
 
@@ -125,9 +124,9 @@ class CardProductBase(BaseModel):
     name_ar: str = Field(description="اسم البطاقة بالعربية")
     provider: CardProvider
     service_id: str = Field(description="معرف الخدمة")
-    denomination: Decimal = Field(description="فئة البطاقة")
+    denomination: float = Field(description="فئة البطاقة")
     currency: str = Field(default="USD", description="العملة")
-    price: Decimal = Field(description="السعر")
+    price: float = Field(description="السعر")
     discount_percentage: Optional[float] = Field(default=0.0, description="نسبة الخصم")
     is_available: bool = Field(default=True)
     delivery_time_minutes: int = Field(default=5, description="وقت التسليم بالدقائق")
@@ -142,10 +141,10 @@ class CardProduct(CardProductBase):
     review_count: int = Field(default=0, description="عدد المراجعات")
     
     @property
-    def final_price(self) -> Decimal:
+    def final_price(self) -> float:
         """السعر النهائي بعد الخصم"""
         if self.discount_percentage > 0:
-            discount_amount = self.price * Decimal(self.discount_percentage / 100)
+            discount_amount = self.price * (self.discount_percentage / 100)
             return self.price - discount_amount
         return self.price
 
@@ -158,7 +157,7 @@ class OrderItemBase(BaseModel):
     """عنصر في الطلب"""
     card_product_id: str
     quantity: int = Field(ge=1, description="الكمية")
-    unit_price: Decimal = Field(description="سعر الوحدة")
+    unit_price: float = Field(description="سعر الوحدة")
     discount_applied: Optional[float] = Field(default=0.0, description="الخصم المطبق")
 
 class OrderItem(OrderItemBase):
@@ -167,9 +166,9 @@ class OrderItem(OrderItemBase):
     card_codes: List[str] = Field(default_factory=list, description="أكواد البطاقات")
     
     @property
-    def total_price(self) -> Decimal:
+    def total_price(self) -> float:
         """إجمالي السعر للعنصر"""
-        unit_price_after_discount = self.unit_price * Decimal(1 - (self.discount_applied or 0) / 100)
+        unit_price_after_discount = self.unit_price * (1 - (self.discount_applied or 0) / 100)
         return unit_price_after_discount * self.quantity
 
 class OrderBase(BaseModel):
@@ -193,9 +192,9 @@ class Order(BaseModel):
     customer_name: str
     items: List[OrderItem]
     status: OrderStatus = Field(default=OrderStatus.PENDING)
-    subtotal: Decimal = Field(description="المجموع الفرعي")
-    discount_amount: Decimal = Field(default=Decimal("0.00"), description="مبلغ الخصم")
-    total_amount: Decimal = Field(description="المبلغ الإجمالي")
+    subtotal: float = Field(description="المجموع الفرعي")
+    discount_amount: float = Field(default=0.0, description="مبلغ الخصم")
+    total_amount: float = Field(description="المبلغ الإجمالي")
     currency: str = Field(default="USD")
     created_at: datetime = Field(default_factory=datetime.utcnow)
     updated_at: Optional[datetime] = None
@@ -217,7 +216,7 @@ class Order(BaseModel):
 class PaymentBase(BaseModel):
     """النموذج الأساسي للدفعة"""
     order_id: str
-    amount: Decimal
+    amount: float
     currency: str = Field(default="USD")
     payment_method: str = Field(description="طريقة الدفع")
 
@@ -260,7 +259,7 @@ class ServiceStats(BaseModel):
     """إحصائيات الخدمة"""
     service_id: str
     total_orders: int = Field(default=0)
-    total_revenue: Decimal = Field(default=Decimal("0.00"))
+    total_revenue: float = Field(default=0.0)
     success_rate: float = Field(default=0.0)
     average_rating: float = Field(default=0.0)
     total_customers: int = Field(default=0)
@@ -269,7 +268,7 @@ class ServiceStats(BaseModel):
 class DashboardMetrics(BaseModel):
     """مقاييس لوحة التحكم"""
     total_orders_today: int = Field(default=0)
-    total_revenue_today: Decimal = Field(default=Decimal("0.00"))
+    total_revenue_today: float = Field(default=0.0)
     total_customers: int = Field(default=0)
     active_services: int = Field(default=0)
     pending_orders: int = Field(default=0)
