@@ -231,6 +231,7 @@ async def seed_database():
     # =====================================================
     sample_orders = [
         {
+            "order_number": "ORD-20241206175030-SAMPLE01",
             "user_id": users[0].id,
             "customer_email": users[0].email,
             "customer_name": users[0].full_name,
@@ -250,6 +251,7 @@ async def seed_database():
             "completed_at": datetime.utcnow() - timedelta(days=2)
         },
         {
+            "order_number": "ORD-20241206175030-SAMPLE02",
             "user_id": users[1].id,
             "customer_email": users[1].email, 
             "customer_name": users[1].full_name,
