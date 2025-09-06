@@ -247,7 +247,7 @@ const ProductCard = () => {
             <div className="service-features">
               <div className="feature-item">
                 <FiTruck className="feature-icon" />
-                <span className="feature-text">توصيل فوري</span>
+                <span className="feature-text">إرسال فوري</span>
               </div>
               <div className="feature-item">
                 <FiShield className="feature-icon" />
