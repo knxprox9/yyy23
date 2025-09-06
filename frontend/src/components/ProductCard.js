@@ -299,7 +299,7 @@ const StyledWrapper = styled.div`
     background: white;
     border-radius: 1.2rem; /* زيادة الانحناء قليلاً */
     padding: 0.4rem; /* زيادة الحشو قليلاً */
-    padding-bottom: 2.2rem; /* زيادة المسافة من الأسفل */
+    padding-bottom: 0.8rem; /* تقليل المسافة من الأسفل لإزالة الفراغ */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 50px 30px -20px, 
                 rgba(0, 0, 0, 0.1) 0px 20px 25px -15px; /* ظل مزدوج للعمق */
     transition: all 0.5s ease-in-out;
