@@ -6,7 +6,6 @@ Sample Data Seeder for Digital Cards Platform
 import asyncio
 from motor.motor_asyncio import AsyncIOMotorClient
 from datetime import datetime, timedelta
-from decimal import Decimal
 import os
 from dotenv import load_dotenv
 from pathlib import Path
@@ -68,7 +67,7 @@ async def seed_database():
     for service_data in services_data:
         service = Service(**service_data)
         services.append(service)
-        await db.services.insert_one(service.dict())
+        await db.services.insert_one(service.model_dump())
     
     print(f"✅ تم إدخال {len(services)} خدمات")
     
