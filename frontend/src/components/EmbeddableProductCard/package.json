@@ -1,0 +1,58 @@
+{
+  "name": "@yourcompany/embeddable-product-card",
+  "version": "1.0.0",
+  "description": "A fully responsive, standalone product card component for digital payment cards with Arabic RTL support",
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "EmbeddableProductCard.js",
+    "ProductCardDemo.js",
+    "ProductCardShowcase.js",
+    "README.md"
+  ],
+  "keywords": [
+    "react",
+    "component",
+    "product-card",
+    "payment-cards",
+    "responsive",
+    "embeddable",
+    "arabic",
+    "rtl",
+    "fintech",
+    "ui-component"
+  ],
+  "author": "Your Company",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "styled-components": ">=5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/styled-components": "^5.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourcompany/embeddable-product-card"
+  },
+  "bugs": {
+    "url": "https://github.com/yourcompany/embeddable-product-card/issues"
+  },
+  "homepage": "https://github.com/yourcompany/embeddable-product-card#readme",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "sideEffects": false
+}
