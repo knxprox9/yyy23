@@ -233,6 +233,16 @@ async def get_dashboard_metrics():
 # Include the router in the main app
 app.include_router(api_router)
 
+# Simple root endpoint
+@app.get("/")
+async def root():
+    return {
+        "message": "مرحباً بكم في منصة البطاقات الرقمية",
+        "version": "1.0.0",
+        "services": ["digital_cards", "gift_cards", "gaming_cards", "payment_cards"],
+        "status": "active"
+    }
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
